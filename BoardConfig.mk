@@ -85,6 +85,9 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 # Android Verified Boot
 BOARD_AVB_ENABLE := false
 
+# Properties
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # Debug
 TARGET_USES_LOGD := true
 TWRP_INCLUDE_LOGCAT := true
