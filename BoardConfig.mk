@@ -117,6 +117,9 @@ TARGET_USES_MKE2FS := true
 TW_DEVICE_VERSION := ShazuxD
 TW_EXCLUDE_APEX := true
 
+# Haptics
+TW_NO_HAPTICS := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
