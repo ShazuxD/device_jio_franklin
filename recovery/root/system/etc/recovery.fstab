@@ -1,0 +1,17 @@
+#<src>               <mnt_point>            <type>  <mnt_flags and options>                                         <fs_mgr_flags>
+system               /system                ext4    ro,barrier=1                                                    wait,logical
+vendor               /vendor                ext4    ro,barrier=1                                                    wait,logical
+product              /product               ext4    ro,barrier=1                                                    wait,logical
+odm                  /odm                   ext4    ro,barrier=1                                                    wait,logical
+
+/dev/block/oem       /oem                   ext4    ro,barrier=1                                                    wait
+/dev/block/metadata  /metadata              ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic   wait,check,formattable
+/dev/block/data      /data                  ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic   wait,check,quota,formattable,reservedsize=32M
+/dev/block/odm_ext   /mnt/vendor/odm_ext    ext4    ro,noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic  wait,check
+/dev/block/cache     /cache                 ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic   wait,check,formattable
+/dev/block/param     /mnt/vendor/param      ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic   wait,check,quota,formattable
+/dev/block/tee       /mnt/vendor/tee        ext4    noatime,nosuid,nodev,nodelalloc,nomblk_io_submit,errors=panic   wait,check,formattable
+/dev/block/factory   /mnt/vendor/factory    vfat    noatime,nodiratime,nosuid,noexec,dmask=0022                     wait,check
+/dev/block/misc      /misc                  emmc    defaults                                                        defaults
+/dev/block/boot      /boot                  emmc    defaults                                                        defaults
+/dev/block/recovery  /recovery              emmc    defaults                                                        defaults

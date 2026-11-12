@@ -122,5 +122,8 @@ TW_INCLUDE_REPACKTOOLS := true
 TARGET_USES_MKE2FS := true
 MAINTAINER := ShazuxD
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+
 # Platform version
 PLATFORM_VERSION := 16.1.0
