@@ -2,6 +2,20 @@ on early-init
     insmod /boot/dwc3.ko
     symlink /dev/block/bootloader /dev/block/by-name/bootloader_a
     symlink /dev/block/bootloader /dev/block/by-name/bootloader_b
+    setprop ro.vendor.platform.is.tv 1
+    setprop ro.vendor.platform.has.mbxuimode true
+    setprop ro.vendor.platform.has.realoutputmode true
+    setprop ro.vendor.platform.hdmi.device_type 4
+    setprop ro.vendor.platform.need.display.hdmicec true
+    setprop ro.hdmi.device_type 4
+    setprop ro.surface_flinger.max_graphics_width 1920
+    setprop ro.surface_flinger.max_graphics_height 1080
+    setprop ro.sf.lcd_density 320
+    setprop vendor.afbcd.enable 1
+    setprop ro.vendor.sdr2hdr.enable true
+    setprop persist.vendor.sys.framerate.priority true
+    setprop ro.board.platform JioSTB
+    setprop ro.build.characteristics tv,nosdcard
 
 on init
     chmod 0777 /bin/systemcontrol_static
@@ -16,6 +30,7 @@ on post-fs-data
     chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
 on boot
+    start systemcontrol
     mkdir /udisk
     mkdir /dev/usb-ffs 0770 system system
     mkdir /dev/usb-ffs/adb 0770 system system
@@ -61,7 +76,8 @@ service remotecfg2 /sbin/remotecfg -c /sbin/remote.cfg -t /sbin/remote.tab2 -d
     oneshot
     seclabel u:r:recovery:s0
 
-service systemcontrol /bin/systemcontrol_static /sbin/mesondisplay.cfg
+service systemcontrol /system/bin/systemcontrol_static /sbin/mesondisplay.cfg
+    disabled
     oneshot
     seclabel u:r:recovery:s0
 
