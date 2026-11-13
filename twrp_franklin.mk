@@ -6,6 +6,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 # Inherit from our TWRP configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
 
+# Inherit from franklin
+$(call inherit-product, device/jio/franklin/device.mk)
+
 ## Device identifier.
 PRODUCT_DEVICE := franklin
 PRODUCT_NAME := twrp_franklin
