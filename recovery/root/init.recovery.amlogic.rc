@@ -2,6 +2,7 @@ on early-init
     insmod /boot/dwc3.ko
     symlink /dev/block/bootloader /dev/block/by-name/bootloader_a
     symlink /dev/block/bootloader /dev/block/by-name/bootloader_b
+    write /sys/class/display/mode 720p60hz
 
 on init
     chmod 0777 /bin/systemcontrol_static
